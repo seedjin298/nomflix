@@ -35,6 +35,12 @@ const Title = styled.span`
   margin-bottom: 3px;
 `;
 
+const Country = styled("span")`
+  display: block;
+  margin-top: 20px;
+  font-size: 18px;
+`;
+
 export default function Production({
   location: { pathname },
   match: {
@@ -44,6 +50,7 @@ export default function Production({
 }) {
   const [loading, setLoading] = useState(true);
   const [companies, setCompanies] = useState([]);
+  const [countries, setCountries] = useState([]);
   const [error, setError] = useState(null);
   const isMovie = pathname.includes("/movie/");
   async function getProduction() {
@@ -53,16 +60,25 @@ export default function Production({
         return push("/");
       }
       let companies;
+      let countries;
       if (isMovie) {
         ({
           data: { production_companies: companies },
         } = await moviesApi.movieDetail(id));
+        ({
+          data: { production_countries: countries },
+        } = await moviesApi.movieDetail(id));
         setCompanies(companies);
+        setCountries(countries);
       } else {
         ({
           data: { production_companies: companies },
         } = await tvApi.showDetail(id));
+        ({
+          data: { production_countries: countries },
+        } = await tvApi.showDetail(id));
         setCompanies(companies);
+        setCountries(countries);
       }
     } catch (error) {
       setError(error);
@@ -97,6 +113,12 @@ export default function Production({
               );
             })}
           </Grid>
+          {countries.length > 0 && (
+            <Country>
+              Production Country:{" "}
+              <>{countries.map((country) => country.name)}</>
+            </Country>
+          )}
         </>
       ) : (
         <h1>No Info Found</h1>
