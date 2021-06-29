@@ -19,3 +19,7 @@ Learning React and ES6 by building a Movie Discvery App.
 - [x] TV Show Detail
 - [x] Movie Detail
 - [x] Search (Movie, TV)
+
+## Preview
+
+Check out [netlify](https://optimistic-mayer-f7705a.netlify.app/#/)
