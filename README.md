@@ -4,10 +4,10 @@ Learning React and ES6 by building a Movie Discvery App.
 
 ## Screens
 
-- [ ] Home
-- [ ] TV Shows
-- [ ] Search
-- [ ] Detailsc
+- [x] Home
+- [x] TV Shows
+- [x] Search
+- [x] Details
 
 ## API Verbs
 
@@ -18,4 +18,4 @@ Learning React and ES6 by building a Movie Discvery App.
 - [x] Airing (TV)
 - [x] TV Show Detail
 - [x] Movie Detail
-- [ ] Search (Movie, TV)
+- [x] Search (Movie, TV)
