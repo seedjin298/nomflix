@@ -116,7 +116,13 @@ export default function Production({
           {countries.length > 0 && (
             <Country>
               Production Country:{" "}
-              <>{countries.map((country) => country.name)}</>
+              <>
+                {countries.map((country, index) =>
+                  index === countries.length - 1
+                    ? country.name
+                    : `${country.name} • `
+                )}
+              </>
             </Country>
           )}
         </>
